@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "web-research-pipeline"
+version = "1.0.0"
+description = "Plan queries, fetch pages, and return JSON that cites the text it used"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{name = "Sashank Badri Narayan"}]
+
+[project.optional-dependencies]
+browser = ["playwright>=1.49"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+research = "research.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
